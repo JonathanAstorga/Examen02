@@ -43,42 +43,41 @@ class Regalos : AppCompatActivity() {
     fun cargarDetalles(option: String?){
         when(option){
             "Detalles" ->{
-                detalles.add(Detalles(R.drawable.cumplebotanas, "$280.00"))
-                detalles.add(Detalles(R.drawable.cumplecheve, "$320.00"))
-                detalles.add(Detalles(R.drawable.cumpleescolar, "$330.00"))
-                detalles.add(Detalles(R.drawable.cumplepaletas, "$190.00"))
-                detalles.add(Detalles(R.drawable.cumplesnack, "$150.00"))
-                detalles.add(Detalles(R.drawable.cumplevinos, "$370.00"))
+                detalles.add(Detalles(R.drawable.cumplebotanas, "280"))
+                detalles.add(Detalles(R.drawable.cumplecheve, "320"))
+                detalles.add(Detalles(R.drawable.cumpleescolar, "330"))
+                detalles.add(Detalles(R.drawable.cumplepaletas, "190"))
+                detalles.add(Detalles(R.drawable.cumplesnack, "150"))
+                detalles.add(Detalles(R.drawable.cumplevinos, "370"))
             }
             "Globos" ->{
-                detalles.add(Detalles(R.drawable.globoamor, "$240.00"))
-                detalles.add(Detalles(R.drawable.globocumple, "$820.00"))
-                detalles.add(Detalles(R.drawable.globofestejo, "$260.00"))
-                detalles.add(Detalles(R.drawable.globonum, "$760.00"))
-                detalles.add(Detalles(R.drawable.globoregalo, "$450.00"))
-                detalles.add(Detalles(R.drawable.globos, "$240.00"))
+                detalles.add(Detalles(R.drawable.globoamor, "240"))
+                detalles.add(Detalles(R.drawable.globocumple, "820"))
+                detalles.add(Detalles(R.drawable.globofestejo, "260"))
+                detalles.add(Detalles(R.drawable.globonum, "760"))
+                detalles.add(Detalles(R.drawable.globoregalo, "450"))
+                detalles.add(Detalles(R.drawable.globos, "240"))
             }
             "Peluches" ->{
-                detalles.add(Detalles(R.drawable.peluchemario, "$320.00"))
-                detalles.add(Detalles(R.drawable.pelucheminecraft, "$320.00"))
-                detalles.add(Detalles(R.drawable.peluchepeppa, "$290.00"))
-                detalles.add(Detalles(R.drawable.peluches, "400.00"))
-                detalles.add(Detalles(R.drawable.peluchesony, "$330.00"))
-                detalles.add(Detalles(R.drawable.peluchestich, "$280.00"))
-                detalles.add(Detalles(R.drawable.peluchevarios, "$195.00"))
+                detalles.add(Detalles(R.drawable.peluchemario, "320"))
+                detalles.add(Detalles(R.drawable.pelucheminecraft, "320"))
+                detalles.add(Detalles(R.drawable.peluchepeppa, "290"))
+                detalles.add(Detalles(R.drawable.peluches, "400"))
+                detalles.add(Detalles(R.drawable.peluchesony, "330"))
+                detalles.add(Detalles(R.drawable.peluchestich, "280"))
+                detalles.add(Detalles(R.drawable.peluchevarios, "195"))
             }
             "Regalos" ->{
-                detalles.add(Detalles(R.drawable.peluchemario, "$320.00"))
-                detalles.add(Detalles(R.drawable.pelucheminecraft, "$320.00"))
-                detalles.add(Detalles(R.drawable.peluchepeppa, "$290.00"))
-                detalles.add(Detalles(R.drawable.peluches, "400.00"))
-                detalles.add(Detalles(R.drawable.peluchesony, "$330.00"))
-                detalles.add(Detalles(R.drawable.peluchestich, "$280.00"))
-                detalles.add(Detalles(R.drawable.peluchevarios, "$195.00"))
+                detalles.add(Detalles(R.drawable.regaloazul, "80"))
+                detalles.add(Detalles(R.drawable.regalobebe, "290"))
+                detalles.add(Detalles(R.drawable.regalocajas, "140"))
+                detalles.add(Detalles(R.drawable.regalocolores, "85"))
+                detalles.add(Detalles(R.drawable.regalos, "600"))
+                detalles.add(Detalles(R.drawable.regalovarios, "75"))
             }
             "Tazas" ->{
-                detalles.add(Detalles(R.drawable.tazaabuela, "$120.00"))
-                detalles.add(Detalles(R.drawable.tazalove, "$120.00"))
+                detalles.add(Detalles(R.drawable.tazaabuela, "120.00"))
+                detalles.add(Detalles(R.drawable.tazalove, "120.00"))
                 detalles.add(Detalles(R.drawable.tazaquiero, "260.00"))
                 detalles.add(Detalles(R.drawable.tazas, "280.00"))
             }
@@ -113,15 +112,15 @@ class RegalosAdapter: BaseAdapter {
         var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var vista = inflator.inflate(R.layout.activity_detalle_regalos, null)
         var image: ImageView = vista.findViewById(R.id.imgRegalo)
-        var precio: TextView = vista.findViewById(R.id.txtRegaloPrecio)
+        var precio: TextView = vista.findViewById<TextView?>(R.id.txtRegaloPrecio)
 
         image.setImageResource(detalle.imagen)
-        precio.setText(detalle.precio)
+        precio.setText("$"+detalle.precio)
 
         image.setOnClickListener{
             val intento = Intent(context, DetalleRegalos::class.java)
             intento.putExtra("imagen", detalle.imagen)
-            intento.putExtra("precio", detalle.precio)
+            intento.putExtra("precio", "$"+detalle.precio+".00")
             context!!.startActivity(intento)
         }
         return vista

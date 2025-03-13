@@ -38,7 +38,7 @@
         android:paddingHorizontal="6dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:horizontalSpacing="10dp"
+        android:horizontalSpacing="5dp"
         />
 
 </LinearLayout>
