@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ExamenU2</string>
+
+    <string name="visitar">Visitar</string>
+
+
+    <string name="detalles">Detalles</string>
+    <string name="globlos">Globos</string>
+    <string name="peluches">Peluches</string>
+    <string name="regalos">Regalos</string>
+    <string name="tazas">Tazas</string>
+
+    <string name="precio">$</string>
+</resources>
